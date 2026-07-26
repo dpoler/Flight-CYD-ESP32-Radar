@@ -220,7 +220,7 @@ FlightRadarCYD/
 │   ├── Stats.cpp         # 24-hour rolling stats, hourly chart, per-location NVS/LittleFS persistence
 │   ├── OpenSky.cpp       # OpenSky API fetch, streaming JSON parse, distance filter, auth token
 │   ├── OTA.cpp           # GitHub release check and OTA firmware update
-│   ├── Airlines.cpp      # Airline name lookup (loads airlines.csv from GitHub at boot)
+│   ├── Airlines.cpp      # Airline name lookup (loads airlines.csv from AirlinesCSV repo at boot)
 │   └── ADSBDB.cpp        # Aircraft type lookup (detail tap + stats records)
 ├── include/
 │   ├── Portal.h
@@ -229,7 +229,6 @@ FlightRadarCYD/
 │   ├── OTA.h
 │   ├── Airlines.h
 │   └── ADSBDB.h
-├── airlines.csv          # ICAO airline code → name table
 └── platformio.ini
 ```
 
@@ -248,7 +247,7 @@ No separate filesystem upload step is required. The LittleFS partition is format
 ## ⚠️ Known Limitations
 
 - Origin/destination info is not available — ADSBDB has this data but it's historical and often inaccurate. If you find a reliable free source, please open an issue.
-- `airlines.csv` covers US carriers, common international carriers, and charter/flight school/fractional operators. Contributions welcome.
+- [`airlines.csv`](https://github.com/dpoler/AirlinesCSV/blob/main/airlines.csv) covers US carriers, common international carriers, and charter/flight school/fractional operators. Contributions welcome.
 - The anonymous OpenSky limit (400/day) is enforced per IP. Multiple anonymous devices behind the same IP will share the limit.
 - Maximum configurable radius is 500 km / 310 mi (OpenSky API limit).
 - At very busy airports, ground aircraft can consume fetch slots even with the GND filter off — the filter moves GND exclusion to fetch time to keep airborne aircraft visible.

@@ -4,7 +4,7 @@
 #include <WiFiClientSecure.h>
 
 #define AIRLINES_URL \
-  "https://raw.githubusercontent.com/dpoler/FlightRadarCYD/main/airlines.csv"
+  "https://raw.githubusercontent.com/dpoler/AirlinesCSV/main/airlines.csv"
 
 static AirlineEntry     g_airlines[AIRLINES_MAX];
 static int              g_airline_count = 0;
